@@ -9,7 +9,8 @@ import zerobase.weather.domain.Memo;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 @Transactional //데이터 베이스를 테스트할 때 많이 사용되는 어노테이션. 데이터베이스를 테스트 할 때 안에 있는 정보가 변경되지 않게 해주는 역할

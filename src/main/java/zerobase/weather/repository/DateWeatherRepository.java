@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 import zerobase.weather.domain.DateWeather;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Repository
 public interface DateWeatherRepository extends JpaRepository<DateWeather, LocalDate> {

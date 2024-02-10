@@ -18,7 +18,8 @@ public class DiaryController {
         this.diaryService = diaryService;
     }
 
-    @ApiOperation(value = "일기 텍스트와 날씨를 이용해 DB에 일기 저장") // value : API의 한줄 설명. notes : API의 긴 설명이 필요할 때 사용.
+    @ApiOperation(value = "일기 텍스트와 날씨를 이용해 DB에 일기 저장")
+    // value : API의 한줄 설명. notes : API의 긴 설명이 필요할 때 사용.
     @PostMapping("/create/diary")
     void createDiary(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @ApiParam(value = "저장할 날짜", example = "2020-02-02") LocalDate date, @RequestBody String text) {
         diaryService.createDiary(date, text);

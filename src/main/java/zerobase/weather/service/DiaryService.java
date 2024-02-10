@@ -14,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 import zerobase.weather.WeatherApplication;
 import zerobase.weather.domain.DateWeather;
 import zerobase.weather.domain.Diary;
-import zerobase.weather.error.InvalidDate;
 import zerobase.weather.repository.DateWeatherRepository;
 import zerobase.weather.repository.DiaryRepository;
 
@@ -30,12 +29,11 @@ import java.util.Map;
 @Service
 @Transactional(readOnly = true)
 public class DiaryService {
-    @Value("${openweathermap.key}")
-    private String apiKey;
+    private static final Logger logger = LoggerFactory.getLogger(WeatherApplication.class);
     private final DiaryRepository diaryRepository;
     private final DateWeatherRepository dateWeatherRepository;
-
-    private static final Logger logger = LoggerFactory.getLogger(WeatherApplication.class);
+    @Value("${openweathermap.key}")
+    private String apiKey;
 
     public DiaryService(DiaryRepository diaryRepository, DateWeatherRepository dateWeatherRepository) {
         this.diaryRepository = diaryRepository;
@@ -114,7 +112,7 @@ public class DiaryService {
         diaryRepository.deleteAllByDate(date);
     }
 
-    private String getWeatherString(){
+    private String getWeatherString() {
         String apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=seoul&appid=" + apiKey;
         try {
             URL url = new URL(apiUrl);

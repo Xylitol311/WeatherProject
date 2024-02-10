@@ -21,6 +21,7 @@ public class SwaggerConfig {
                 .paths(PathSelectors.any())
                 .build().apiInfo(apiIfo());
     }
+
     private ApiInfo apiIfo() {
         String description = "Welcome Log Company";
         return new ApiInfoBuilder()

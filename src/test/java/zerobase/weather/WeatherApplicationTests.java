@@ -10,7 +10,7 @@ class WeatherApplicationTests {
 
     @Test
     void equalTest() {
-        assertEquals(1,1);
+        assertEquals(1, 1);
     }
 
     @Test
